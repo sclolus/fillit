@@ -6,7 +6,7 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 18:22:07 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/09 21:35:46 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/09 23:13:56 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # define MAX_TETRI_COUNT 26
 # define BLOCK_COUNT 4
 # define FILE_ERROR 0
+# define BITFIELD_SIZE 64
 
 # include <sys/types.h>
 # include <fcntl.h>
@@ -30,16 +31,25 @@ typedef struct	s_block
 
 typedef struct	s_tetri
 {
-	t_block	blocks[BLOCK_COUNT];
-	size_t	width;
-	size_t	height;
-	size_t	x;
-	size_t	y;
+	t_block		blocks[BLOCK_COUNT];
+	size_t		width;
+	size_t		height;
+	size_t		x;
+	size_t		y;
+	t_bitfield	*bitfields;
 }				t_tetri;
+
+typedef struct	s_bitfield
+{
+	unsigned long	bits : BITFIELD_SIZE;
+}				t_bitfield;
 
 size_t			ft_read_file(char *path, char **content);
 size_t			ft_read_content(char *content, size_t size);
 size_t			ft_get_tetris(char *content, size_t count, t_tetri **tetris);
-void			ft_write_solution(size_t square_size, t_tetri **tetris);
+size_t			ft_get_bitfields_size(t_tetri **tetri);
+t_bitfield		*ft_get_bitfields(size_t size, t_tetri *tetri);
+int				ft_are_overlapped(size_t size, t_tetri *t1, t_tetri *t2);
+int				ft_next_position(size_t size, t_tetri *tetri);
 
 #endif

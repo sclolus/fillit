@@ -6,12 +6,12 @@
 /*   By: sclolus <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 19:18:19 by sclolus           #+#    #+#             */
-/*   Updated: 2016/11/09 21:07:53 by sclolus          ###   ########.fr       */
+/*   Updated: 2016/11/09 22:27:21 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "ft_fillit.h"
-#include "libft.h"
 
 size_t			ft_read_file(char *path, char **content)
 {

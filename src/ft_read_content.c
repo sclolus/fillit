@@ -6,13 +6,11 @@
 /*   By: sclolus <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 19:15:28 by sclolus           #+#    #+#             */
-/*   Updated: 2016/11/09 21:23:52 by sclolus          ###   ########.fr       */
+/*   Updated: 2016/11/09 22:27:11 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
-#include "libft.h"
-
 
 static size_t	ft_read_tetri(char *content, size_t offset)
 {
