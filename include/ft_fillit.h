@@ -6,7 +6,7 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 18:22:07 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/09 18:52:42 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/09 20:47:33 by sclolus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 # define MAX_FILE_SIZE 545
 # define MAX_TETRI_COUNT 26
 # define BLOCK_COUNT 4
+# define FILE_ERROR 0
+# include <sys/types.h>
+# include <fcntl.h>
+# include <unistd.h>
+# include <stdlib.h>
 
 typedef struct	s_block
 {
