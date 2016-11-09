@@ -6,11 +6,13 @@
 /*   By: sclolus <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 19:15:28 by sclolus           #+#    #+#             */
-/*   Updated: 2016/11/09 20:46:38 by sclolus          ###   ########.fr       */
+/*   Updated: 2016/11/09 21:23:52 by sclolus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
+#include "libft.h"
+
 
 static size_t	ft_read_tetri(char *content, size_t offset)
 {
@@ -23,9 +25,9 @@ static size_t	ft_read_tetri(char *content, size_t offset)
 	nbr_blocks = 0;
 	while (u < 5 && nbr_line < 4)
 	{
-		if (!((((content[offset] == '#') || (content[offset] = '.'))
-			&& u < 4)
-			|| (content[offset] == '\n' && u == 4)))
+		if (!(((content[offset] == '#' || content[offset] == '.')
+			   && u < 4)
+			  || (content[offset] == '\n' && u == 4)))
 			return (FILE_ERROR);
 		if (content[offset] == '#')
 			nbr_blocks++;
@@ -44,19 +46,16 @@ static size_t	ft_read_tetri(char *content, size_t offset)
 size_t			ft_read_content(char *content, size_t size)
 {
 	size_t	offset;
-	size_t	nbr_tetri;
 
 	offset = 0;
-	nbr_tetri = 0;
 	while (offset < size)
 	{
 		if (!(ft_read_tetri(content, offset)))
 			return (0);
-		offset += 25;
-		if (content[offset] != '\n' && offset != size - 1)
+		offset += 20;
+		if (content[offset] != '\n' && offset != size)
 			return (FILE_ERROR);
-		nbr_tetri++;
 		offset++;
 	}
-	return (nbr_tetri);
+	return (size / 21 + 1);
 }
