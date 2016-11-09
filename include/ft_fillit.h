@@ -6,12 +6,14 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 18:22:07 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/09 18:52:42 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/09 19:47:29 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_FILLIT_H
 # define FT_FILLIT_H
+
+# include <stdlib.h>
 
 # define MAX_FILE_SIZE 545
 # define MAX_TETRI_COUNT 26
