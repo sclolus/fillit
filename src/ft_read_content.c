@@ -6,13 +6,13 @@
 /*   By: sclolus <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 19:15:28 by sclolus           #+#    #+#             */
-/*   Updated: 2016/11/09 19:32:04 by sclolus          ###   ########.fr       */
+/*   Updated: 2016/11/09 20:46:38 by sclolus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
 
-static size_t	ft_read_tetri(char *content, size_t offtset)
+static size_t	ft_read_tetri(char *content, size_t offset)
 {
 	size_t	nbr_line;
 	size_t	nbr_blocks;
@@ -23,7 +23,7 @@ static size_t	ft_read_tetri(char *content, size_t offtset)
 	nbr_blocks = 0;
 	while (u < 5 && nbr_line < 4)
 	{
-		if (!(((content[offset] == '#') || (content[offset] = '.')
+		if (!((((content[offset] == '#') || (content[offset] = '.'))
 			&& u < 4)
 			|| (content[offset] == '\n' && u == 4)))
 			return (FILE_ERROR);
