@@ -6,13 +6,12 @@
 /*   By: sclolus <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 17:38:11 by sclolus           #+#    #+#             */
-/*   Updated: 2016/11/10 19:21:47 by sclolus          ###   ########.fr       */
+/*   Updated: 2016/11/10 20:40:11 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
 #include <unistd.h>
-#include "libft.h"
 
 void			ft_print_solution(t_square *square, size_t count, t_tetri **tetris)
 {

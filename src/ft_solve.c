@@ -6,7 +6,7 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 05:06:23 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/10 08:28:08 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/10 20:59:50 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,23 @@
 
 int		ft_solve_one(t_square *square, size_t count, t_tetri **tetris, size_t i)
 {
+	t_tetri	*tetri;
+
 	if (i >= count)
 		return (1);
-	tetris[i]->x = 0;
-	tetris[i]->y = 0;
+	tetri = tetris[i];
+	tetri->x = 0;
+	tetri->y = 0;
 	while (1)
 	{
-		if (!ft_is_claimed(square, tetris[i]))
+		if (!ft_is_claimed(square, tetri))
 		{
-			ft_claim(square, tetris[i]);
+			ft_claim(square, tetri);
 			if (ft_solve_one(square, count, tetris, i + 1))
 				return (1);
-			ft_unclaim(square, tetris[i]);
+			ft_unclaim(square, tetri);
 		}
-		if (!ft_move(square, tetris[i]))
+		if (!ft_move(square, tetri))
 			return (0);
 	}
 }
