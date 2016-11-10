@@ -6,7 +6,7 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 18:22:07 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/10 04:41:32 by sclolus          ###   ########.fr       */
+/*   Updated: 2016/11/10 04:44:58 by sclolus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # define FILE_ERROR 0
 # define BITFIELD_SIZE 64
 # define MAX_SQUARE_SIZE 484
-# define CELL(x, y, size) (y * size + x)
 # define CELL(t, i, s) (t->blocks[i].x + t->x + (t->block[i].y + t->y) * size)
 # include <sys/types.h>
 # include <fcntl.h>
