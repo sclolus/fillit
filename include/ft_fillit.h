@@ -6,7 +6,7 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 18:22:07 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/10 20:29:53 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/10 20:38:38 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,5 @@ void			ft_unclaim(t_square *square, t_tetri *tetri);
 int				ft_move(t_square *square, t_tetri *tetri);
 void			ft_solve(t_square *square, size_t count,
 							t_tetri **tetris);
-
+void			ft_print_solution(t_square *square, size_t count, t_tetri **tetris);
 #endif
