@@ -3,7 +3,9 @@ SRC_PATH= src/
 SRC_FILES= main.c \
 					 ft_get_tetris.c \
 					 ft_read_file.c \
-					 ft_read_content.c
+					 ft_read_content.c \
+					 ft_claim.c \
+					 ft_unclaim.c
 SRC= $(addprefix $(SRC_PATH),$(SRC_FILES))
 OBJ_PATH= obj/
 OBJ_FILES= $(SRC_FILES:.c=.o)
