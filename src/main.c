@@ -6,7 +6,7 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 18:23:38 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/09 22:47:03 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/10 08:27:47 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	ft_puttetri(t_tetri *tetri)
 	write(1, str, len);
 }
 
+#include <stdio.h>
+
 int		main(int argc, char **argv)
 {
 	char	*str;
@@ -46,6 +48,7 @@ int		main(int argc, char **argv)
 	size_t	size;
 	t_tetri	**tetris;
 	size_t	i;
+	t_square	square;
 
 	if (argc != 2)
 		return (1);
@@ -59,12 +62,17 @@ int		main(int argc, char **argv)
 		return (5);
 	if (!(ft_get_tetris(str, nbr_tetris, tetris)))
 		return (6);
+	ft_init_square(&square, nbr_tetris);
+	square.size = 4;
+	ft_solve(&square, nbr_tetris, tetris);
 	i = 0;
 	while (i < nbr_tetris)
 	{
 		ft_puttetri(tetris[i]);
+		printf("%zu,%zu\n\n", tetris[i]->x, tetris[i]->y);
 		write(1, "\n", 1);
 		++i;
 	}
+	printf("%zu\n", square.size);
   return (0);
 }

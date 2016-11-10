@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_claimed.c                                    :+:      :+:    :+:   */
+/*   ft_init_square.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sclolus <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/10 04:33:16 by sclolus           #+#    #+#             */
-/*   Updated: 2016/11/10 07:08:26 by jguyon           ###   ########.fr       */
+/*   Created: 2016/11/10 05:23:47 by jguyon            #+#    #+#             */
+/*   Updated: 2016/11/10 07:00:58 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
 
-int				ft_is_claimed(t_square *square, t_tetri *tetri)
-{
-	int	i;
 
-	i = -1;
-	while (++i < BLOCK_COUNT)
+#include <stdio.h>
+
+void	ft_init_square(t_square *square, size_t count)
+{
+	size_t	size;
+	size_t	i;
+
+	size = 2;
+	while (size * size < 4 * count)
+		++size;
+	square->size = size;
+	i = 0;
+	while (i < MAX_SQUARE_SIZE)
 	{
-		if (square->blocks[CELL(tetri, i, square->size)])
-			return (1);
+		square->blocks[i] = 0;
+		++i;
 	}
-	return (0);
 }
