@@ -6,7 +6,7 @@
 /*   By: sclolus <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 19:15:28 by sclolus           #+#    #+#             */
-/*   Updated: 2016/11/09 22:27:11 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/11 00:44:01 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,15 @@ static size_t	ft_read_tetri(char *content, size_t offset)
 			  || (content[offset] == '\n' && u == 4)))
 			return (FILE_ERROR);
 		if (content[offset] == '#')
-			nbr_blocks++;
+		{
+			if ((u > 0 && content[offset - 1] == '#')
+					|| (u < 3 && content[offset + 1] == '#')
+					|| (nbr_line > 0 && content[offset - 5] == '#')
+					|| (nbr_line < 3 && content[offset + 5] == '#'))
+				nbr_blocks++;
+			else
+				return (0);
+		}
 		offset++;
 		if (++u == 5)
 		{

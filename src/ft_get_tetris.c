@@ -6,7 +6,7 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 19:15:09 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/10 05:48:09 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/11 00:51:24 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,18 @@ static void		ft_normalize_tetri(t_tetri *tetri)
 size_t			ft_get_tetris(char *content, size_t count, t_tetri **tetris)
 {
 	size_t	i;
+	size_t	j;
 
 	i = 0;
 	while (i < count)
 	{
 		if (!(tetris[i] = (t_tetri *)malloc(sizeof(**tetris))))
+		{
+			j = 0;
+			while (j < i)
+				free(tetris[j++]);
 			return (0);
+		}
 		ft_read_tetri(&content, tetris[i]);
 		tetris[i]->x = 0;
 		tetris[i]->y = 0;
