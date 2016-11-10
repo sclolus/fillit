@@ -6,7 +6,7 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 18:22:07 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/09 23:13:56 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/10 04:31:13 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # define BLOCK_COUNT 4
 # define FILE_ERROR 0
 # define BITFIELD_SIZE 64
+# define MAX_SQUARE_SIZE 484
+# define CELL(x, y, size) (y * size + x)
 
 # include <sys/types.h>
 # include <fcntl.h>
@@ -36,20 +38,19 @@ typedef struct	s_tetri
 	size_t		height;
 	size_t		x;
 	size_t		y;
-	t_bitfield	*bitfields;
 }				t_tetri;
 
-typedef struct	s_bitfield
+typedef struct	s_square
 {
-	unsigned long	bits : BITFIELD_SIZE;
-}				t_bitfield;
+	size_t		size;
+	char		blocks[MAX_SQUARE_SIZE];
+}				t_square;
 
 size_t			ft_read_file(char *path, char **content);
 size_t			ft_read_content(char *content, size_t size);
 size_t			ft_get_tetris(char *content, size_t count, t_tetri **tetris);
-size_t			ft_get_bitfields_size(t_tetri **tetri);
-t_bitfield		*ft_get_bitfields(size_t size, t_tetri *tetri);
-int				ft_are_overlapped(size_t size, t_tetri *t1, t_tetri *t2);
-int				ft_next_position(size_t size, t_tetri *tetri);
+int				ft_is_claimed(t_square *square, t_tetri *tetri);
+void			ft_claim(t_square *square, t_tetri *tetri);
+void			ft_unclaim(t_square *square, t_tetri *tetri);
 
 #endif
