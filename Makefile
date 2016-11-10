@@ -6,7 +6,8 @@ SRC_FILES= main.c \
 					 ft_read_content.c \
 					 ft_claim.c \
 					 ft_unclaim.c \
-					 ft_is_claimed.c
+					 ft_is_claimed.c \
+					 ft_move.c
 SRC= $(addprefix $(SRC_PATH),$(SRC_FILES))
 OBJ_PATH= obj/
 OBJ_FILES= $(SRC_FILES:.c=.o)
