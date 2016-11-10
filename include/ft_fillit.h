@@ -6,7 +6,7 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 18:22:07 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/10 08:26:28 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/10 20:29:53 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct	s_square
 size_t			ft_read_file(char *path, char **content);
 size_t			ft_read_content(char *content, size_t size);
 size_t			ft_get_tetris(char *content, size_t count, t_tetri **tetris);
-void			ft_init_square(t_square *square, size_t count);
+void			ft_init_square(t_square *square, size_t count, t_tetri **tetris);
 int				ft_is_claimed(t_square *square, t_tetri *tetri);
 void			ft_claim(t_square *square, t_tetri *tetri);
 void			ft_unclaim(t_square *square, t_tetri *tetri);

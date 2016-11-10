@@ -6,23 +6,30 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 05:23:47 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/10 07:00:58 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/10 20:35:29 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
 
+static size_t	ft_max(size_t n1, size_t n2)
+{
+	return (n2 > n1 ? n2 : n1);
+}
 
-#include <stdio.h>
-
-void	ft_init_square(t_square *square, size_t count)
+void	ft_init_square(t_square *square, size_t count, t_tetri **tetris)
 {
 	size_t	size;
 	size_t	i;
 
-	size = 2;
-	while (size * size < 4 * count)
-		++size;
+	if (count == 1)
+		size = (ft_max(tetris[0]->width, tetris[0]->height));
+	else
+	{
+		size = 2;
+		while (size * size <= 4 * count)
+			++size;
+	}
 	square->size = size;
 	i = 0;
 	while (i < MAX_SQUARE_SIZE)

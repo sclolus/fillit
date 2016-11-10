@@ -6,7 +6,7 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 18:23:38 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/10 08:27:47 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/10 20:36:59 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,7 @@ int		main(int argc, char **argv)
 		return (5);
 	if (!(ft_get_tetris(str, nbr_tetris, tetris)))
 		return (6);
-	ft_init_square(&square, nbr_tetris);
-	square.size = 4;
+	ft_init_square(&square, nbr_tetris, tetris);
 	ft_solve(&square, nbr_tetris, tetris);
 	i = 0;
 	while (i < nbr_tetris)
