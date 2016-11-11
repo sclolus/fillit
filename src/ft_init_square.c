@@ -6,7 +6,7 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 05:23:47 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/11 04:41:01 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/11 09:59:30 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,18 @@ void			ft_init_square(t_square *square, size_t count, t_tetri **tetris)
 	else
 	{
 		size = 2;
-		while (size * size <= 4 * count)
+		while (size * size < 4 * count)
 			++size;
+	}
+	if (size < 4)
+	{
+		i = 0;
+		while (i < count)
+		{
+			size = ft_max(size, tetris[i]->width);
+			size = ft_max(size, tetris[i]->height);
+			++i;
+		}
 	}
 	square->size = size;
 	i = 0;

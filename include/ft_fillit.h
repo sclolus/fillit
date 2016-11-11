@@ -6,7 +6,7 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 18:22:07 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/11 09:16:19 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/11 09:44:23 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@
 # define MAX_FILE_SIZE 545
 # define MAX_TETRI_COUNT 26
 # define BLOCK_COUNT 4
-# define BITFIELD_SIZE 64
-# define MAX_SQUARE_SIZE 484
-# define CELL(t, i, s) (t->blocks[i].x + t->x + (t->blocks[i].y + t->y) * s)
+# define GRID_SIZE 22
 
 # include <sys/types.h>
 # include <fcntl.h>
@@ -40,21 +38,19 @@ typedef struct	s_box
 
 typedef struct	s_tetri
 {
-	t_block		blocks[BLOCK_COUNT];
-	size_t		x;
-	size_t		y;
-	size_t		width;
-	size_t		height;
-	t_box		box;
+	t_box			box;
+	size_t			x;
+	size_t			y;
 	struct s_tetri	*prev;
+	size_t			width;
+	size_t			height;
+	t_block			blocks[BLOCK_COUNT];
 }				t_tetri;
-
-# define GRID_SIZE 22
 
 typedef struct	s_square
 {
-	size_t			size;
 	unsigned int	grid[GRID_SIZE];
+	size_t			size;
 }				t_square;
 
 size_t			ft_read_file(char *path, char **content);
