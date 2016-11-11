@@ -6,7 +6,7 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 18:22:07 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/11 23:32:55 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/12 00:47:40 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define FT_FILLIT_H
 
 # define MAX_FILE_SIZE 545
-# define MAX_TETRI_COUNT 26
-# define BLOCK_COUNT 4
 # define GRID_SIZE 22
 
 # include <sys/types.h>
@@ -44,7 +42,7 @@ typedef struct	s_tetri
 	struct s_tetri	*prev;
 	size_t			width;
 	size_t			height;
-	t_block			blocks[BLOCK_COUNT];
+	t_block			blocks[4];
 }				t_tetri;
 
 typedef struct	s_square

@@ -6,7 +6,7 @@
 /*   By: sclolus <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 19:15:28 by sclolus           #+#    #+#             */
-/*   Updated: 2016/11/11 23:00:03 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/12 00:46:30 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int		ft_read_tetri(char *content, size_t offset)
 			nbr_line++;
 		}
 	}
-	if (nbr_blocks != BLOCK_COUNT || nbr_neighbors < 6)
+	if (nbr_blocks != 4 || nbr_neighbors < 6)
 		return (0);
 	return (1);
 }

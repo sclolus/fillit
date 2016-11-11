@@ -6,7 +6,7 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 19:15:09 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/11 08:45:56 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/12 00:46:05 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ static void		ft_read_tetri(char **content, t_tetri *tetri)
 
 	k = 0;
 	i = 0;
-	while (i < BLOCK_COUNT)
+	while (i < 4)
 	{
 		j = 0;
-		while (j < BLOCK_COUNT)
+		while (j < 4)
 		{
 			if (**content == '#')
 			{
@@ -46,12 +46,12 @@ static void		ft_normalize_tetri(t_tetri *tetri)
 	t_block	max;
 	int		i;
 
-	min.x = BLOCK_COUNT - 1;
-	min.y = BLOCK_COUNT - 1;
+	min.x = 4 - 1;
+	min.y = 4 - 1;
 	max.x = 0;
 	max.y = 0;
 	i = -1;
-	while (++i < BLOCK_COUNT)
+	while (++i < 4)
 	{
 		min.x = tetri->blocks[i].x < min.x ? tetri->blocks[i].x : min.x;
 		min.y = tetri->blocks[i].y < min.y ? tetri->blocks[i].y : min.y;
@@ -61,7 +61,7 @@ static void		ft_normalize_tetri(t_tetri *tetri)
 	tetri->width = max.x - min.x + 1;
 	tetri->height = max.y - min.y + 1;
 	i = -1;
-	while (++i < BLOCK_COUNT)
+	while (++i < 4)
 	{
 		tetri->blocks[i].x -= min.x;
 		tetri->blocks[i].y -= min.y;
@@ -77,7 +77,7 @@ static void		ft_init_box(t_tetri *tetri)
 	tetri->box.row2 = 0;
 	tetri->box.row3 = 0;
 	i = 0;
-	while (i < BLOCK_COUNT)
+	while (i < 4)
 	{
 		if (tetri->blocks[i].y == 0)
 			tetri->box.row0 |= 0b1000 >> tetri->blocks[i].x;

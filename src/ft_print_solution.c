@@ -6,7 +6,7 @@
 /*   By: sclolus <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 17:38:11 by sclolus           #+#    #+#             */
-/*   Updated: 2016/11/11 01:53:08 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/12 00:46:46 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void			ft_print_solution(t_square *square, size_t count,
 	while (i < count)
 	{
 		u = 0;
-		while (u < BLOCK_COUNT)
+		while (u < 4)
 		{
 			str[ft_str_index(square, tetris[i], u)] = 'A' + i;
 			u++;
