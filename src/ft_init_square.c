@@ -6,7 +6,7 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 05:23:47 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/11 09:59:30 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/11 22:00:11 by sclolus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,20 @@
 static size_t	ft_max(size_t n1, size_t n2)
 {
 	return (n2 > n1 ? n2 : n1);
+}
+
+static size_t	ft_get_size(size_t size, size_t count, t_tetri **tetris)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < count)
+	{
+		size = ft_max(size, tetris[i]->width);
+		size = ft_max(size, tetris[i]->height);
+		++i;
+	}
+	return (size);
 }
 
 void			ft_init_square(t_square *square, size_t count, t_tetri **tetris)
@@ -31,16 +45,7 @@ void			ft_init_square(t_square *square, size_t count, t_tetri **tetris)
 			++size;
 	}
 	if (size < 4)
-	{
-		i = 0;
-		while (i < count)
-		{
-			size = ft_max(size, tetris[i]->width);
-			size = ft_max(size, tetris[i]->height);
-			++i;
-		}
-	}
-	square->size = size;
+		square->size = ft_get_size(size, count, tetris);
 	i = 0;
 	while (i < GRID_SIZE)
 	{
