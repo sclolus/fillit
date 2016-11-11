@@ -6,7 +6,7 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 05:23:47 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/11 22:00:11 by sclolus          ###   ########.fr       */
+/*   Updated: 2016/11/12 00:00:50 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ void			ft_init_square(t_square *square, size_t count, t_tetri **tetris)
 			++size;
 	}
 	if (size < 4)
-		square->size = ft_get_size(size, count, tetris);
+		size = ft_get_size(size, count, tetris);
+	square->size = size;
 	i = 0;
 	while (i < GRID_SIZE)
 	{
