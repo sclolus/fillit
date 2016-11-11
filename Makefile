@@ -9,7 +9,8 @@ SRC_FILES= main.c \
 					 ft_unclaim.c \
 					 ft_move.c \
 					 ft_solve.c \
-					 ft_print_solution.c
+					 ft_print_solution.c \
+					 ft_destroy_tetris.c
 SRC= $(addprefix $(SRC_PATH),$(SRC_FILES))
 OBJ_PATH= obj/
 OBJ_FILES= $(SRC_FILES:.c=.o)

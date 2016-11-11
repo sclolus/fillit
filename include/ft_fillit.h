@@ -6,7 +6,7 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 18:22:07 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/11 09:44:23 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/11 23:32:55 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,6 @@ void			ft_solve(t_square *square, size_t count,
 							t_tetri **tetris);
 void			ft_print_solution(t_square *square, size_t count,
 									t_tetri **tetris);
+void			ft_destroy_tetris(size_t count, t_tetri **tetris);
+
 #endif
