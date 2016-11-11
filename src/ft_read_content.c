@@ -6,7 +6,7 @@
 /*   By: sclolus <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 19:15:28 by sclolus           #+#    #+#             */
-/*   Updated: 2016/11/11 01:41:26 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/11 23:00:03 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,34 +20,35 @@ static int		ft_check_char(char *content, size_t offset, size_t col)
 	return (1);
 }
 
-static int		ft_check_block(char *content, size_t offset,
-								size_t row, size_t col)
+static size_t	ft_count_neighbors(char *content, size_t i, size_t x, size_t y)
 {
-	if ((col > 0 && content[offset - 1] == '#')
-		|| (col < 3 && content[offset + 1] == '#')
-		|| (row > 0 && content[offset - 5] == '#')
-		|| (row < 3 && content[offset + 5] == '#'))
-		return (1);
-	return (0);
+	size_t	neighbors;
+
+	neighbors = 0;
+	neighbors += (x > 0 && content[i - 1] == '#') ? 1 : 0;
+	neighbors += (x < 3 && content[i + 1] == '#') ? 1 : 0;
+	neighbors += (y > 0 && content[i - 5] == '#') ? 1 : 0;
+	neighbors += (y < 3 && content[i + 5] == '#') ? 1 : 0;
+	return (neighbors);
 }
 
 static int		ft_read_tetri(char *content, size_t offset)
 {
 	size_t	nbr_line;
 	size_t	nbr_blocks;
+	size_t	nbr_neighbors;
 	size_t	u;
 
 	u = 0;
 	nbr_line = 0;
 	nbr_blocks = 0;
+	nbr_neighbors = 0;
 	while (u < 5 && nbr_line < 4)
 	{
-		if (!(ft_check_char(content, offset, u))
-			|| (content[offset] == '#'
-				&& !(ft_check_block(content, offset, nbr_line, u))))
+		if (!(ft_check_char(content, offset, u)))
 			return (0);
-		if (content[offset] == '#')
-			nbr_blocks++;
+		if (content[offset] == '#' && ++nbr_blocks)
+			nbr_neighbors += ft_count_neighbors(content, offset, u, nbr_line);
 		offset++;
 		if (++u == 5)
 		{
@@ -55,7 +56,7 @@ static int		ft_read_tetri(char *content, size_t offset)
 			nbr_line++;
 		}
 	}
-	if (nbr_blocks != BLOCK_COUNT)
+	if (nbr_blocks != BLOCK_COUNT || nbr_neighbors < 6)
 		return (0);
 	return (1);
 }
