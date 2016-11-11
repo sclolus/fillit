@@ -6,7 +6,7 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 05:23:47 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/11 01:25:29 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/11 04:41:01 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void			ft_init_square(t_square *square, size_t count, t_tetri **tetris)
 	}
 	square->size = size;
 	i = 0;
-	while (i < MAX_SQUARE_SIZE)
+	while (i < GRID_SIZE)
 	{
-		square->blocks[i] = 0;
+		square->grid[i] = 0;
 		++i;
 	}
 }

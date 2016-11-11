@@ -6,7 +6,7 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 18:22:07 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/11 01:26:17 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/11 04:40:38 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,14 @@ typedef struct	s_block
 	size_t	y;
 }				t_block;
 
+typedef struct	s_box
+{
+	unsigned char	row0 : 4;
+	unsigned char	row1 : 4;
+	unsigned char	row2 : 4;
+	unsigned char	row3 : 4;
+}				t_box;
+
 typedef struct	s_tetri
 {
 	t_block		blocks[BLOCK_COUNT];
@@ -37,12 +45,15 @@ typedef struct	s_tetri
 	size_t		height;
 	size_t		x;
 	size_t		y;
+	t_box		box;
 }				t_tetri;
+
+# define GRID_SIZE 22
 
 typedef struct	s_square
 {
-	size_t		size;
-	char		blocks[MAX_SQUARE_SIZE];
+	size_t			size;
+	unsigned int	grid[GRID_SIZE];
 }				t_square;
 
 size_t			ft_read_file(char *path, char **content);
@@ -50,8 +61,7 @@ size_t			ft_read_content(char *content, size_t size);
 size_t			ft_get_tetris(char *content, size_t count, t_tetri **tetris);
 void			ft_init_square(t_square *square, size_t count,
 								t_tetri **tetris);
-int				ft_is_claimed(t_square *square, t_tetri *tetri);
-void			ft_claim(t_square *square, t_tetri *tetri);
+int				ft_claim(t_square *square, t_tetri *tetri);
 void			ft_unclaim(t_square *square, t_tetri *tetri);
 int				ft_move(t_square *square, t_tetri *tetri);
 void			ft_solve(t_square *square, size_t count,

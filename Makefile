@@ -7,7 +7,6 @@ SRC_FILES= main.c \
 					 ft_init_square.c \
 					 ft_claim.c \
 					 ft_unclaim.c \
-					 ft_is_claimed.c \
 					 ft_move.c \
 					 ft_solve.c \
 					 ft_print_solution.c

@@ -6,7 +6,7 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 19:15:09 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/11 00:51:24 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/11 04:50:11 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,29 @@ static void		ft_normalize_tetri(t_tetri *tetri)
 	}
 }
 
+static void		ft_init_box(t_tetri *tetri)
+{
+	size_t	i;
+
+	tetri->box.row0 = 0;
+	tetri->box.row1 = 0;
+	tetri->box.row2 = 0;
+	tetri->box.row3 = 0;
+	i = 0;
+	while (i < BLOCK_COUNT)
+	{
+		if (tetri->blocks[i].y == 0)
+			tetri->box.row0 |= 0b1000 >> tetri->blocks[i].x;
+		else if (tetri->blocks[i].y == 1)
+			tetri->box.row1 |= 0b1000 >> tetri->blocks[i].x;
+		else if (tetri->blocks[i].y == 2)
+			tetri->box.row2 |= 0b1000 >> tetri->blocks[i].x;
+		else if (tetri->blocks[i].y == 3)
+			tetri->box.row3 |= 0b1000 >> tetri->blocks[i].x;
+		++i;
+	}
+}
+
 size_t			ft_get_tetris(char *content, size_t count, t_tetri **tetris)
 {
 	size_t	i;
@@ -86,7 +109,8 @@ size_t			ft_get_tetris(char *content, size_t count, t_tetri **tetris)
 		ft_read_tetri(&content, tetris[i]);
 		tetris[i]->x = 0;
 		tetris[i]->y = 0;
-		ft_normalize_tetri(tetris[i++]);
+		ft_normalize_tetri(tetris[i]);
+		ft_init_box(tetris[i++]);
 	}
 	return (i);
 }
