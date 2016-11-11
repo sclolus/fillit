@@ -6,7 +6,7 @@
 /*   By: sclolus <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 19:18:19 by sclolus           #+#    #+#             */
-/*   Updated: 2016/11/09 22:27:21 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/12 00:19:43 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ size_t			ft_read_file(char *path, char **content)
 	int		fd;
 	size_t	size;
 
+	if (!(*content = (char *)malloc(sizeof(char) * (MAX_FILE_SIZE + 1))))
+		return (0);
 	if (!(fd = open(path, O_RDONLY)))
 		return (0);
 	if (MAX_FILE_SIZE == (size = read(fd, *content, MAX_FILE_SIZE))

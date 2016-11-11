@@ -6,7 +6,7 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 18:23:38 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/11 23:36:44 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/12 00:19:53 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int		main(int argc, char **argv)
 	str = NULL;
 	tetris = NULL;
 	if (argc != 2
-		|| !(str = (char*)malloc(sizeof(char) * MAX_FILE_SIZE + 1))
 		|| !(size = ft_read_file(argv[1], &str))
 		|| !(nbr_tetris = ft_read_content(str, size))
 		|| !(tetris = (t_tetri**)malloc(sizeof(t_tetri*) * nbr_tetris))
