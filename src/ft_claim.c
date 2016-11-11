@@ -6,12 +6,11 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 04:33:30 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/11 21:56:57 by sclolus          ###   ########.fr       */
+/*   Updated: 2016/11/12 00:05:52 by sclolus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
-#include <stdio.h>
 
 int		ft_claim(t_square *square, t_tetri *tetri)
 {

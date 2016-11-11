@@ -6,14 +6,11 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 05:06:23 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/11 09:27:01 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/12 00:05:05 by sclolus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
-
-#include <unistd.h>
-#include <stdio.h>
 
 int		ft_solve_one(t_square *square, size_t count, t_tetri **tetris, size_t i)
 {
