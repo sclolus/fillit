@@ -6,7 +6,7 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 18:22:07 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/10 20:38:38 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/11 01:26:17 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # define MAX_FILE_SIZE 545
 # define MAX_TETRI_COUNT 26
 # define BLOCK_COUNT 4
-# define FILE_ERROR 0
 # define BITFIELD_SIZE 64
 # define MAX_SQUARE_SIZE 484
 # define CELL(t, i, s) (t->blocks[i].x + t->x + (t->blocks[i].y + t->y) * s)
@@ -49,12 +48,14 @@ typedef struct	s_square
 size_t			ft_read_file(char *path, char **content);
 size_t			ft_read_content(char *content, size_t size);
 size_t			ft_get_tetris(char *content, size_t count, t_tetri **tetris);
-void			ft_init_square(t_square *square, size_t count, t_tetri **tetris);
+void			ft_init_square(t_square *square, size_t count,
+								t_tetri **tetris);
 int				ft_is_claimed(t_square *square, t_tetri *tetri);
 void			ft_claim(t_square *square, t_tetri *tetri);
 void			ft_unclaim(t_square *square, t_tetri *tetri);
 int				ft_move(t_square *square, t_tetri *tetri);
 void			ft_solve(t_square *square, size_t count,
 							t_tetri **tetris);
-void			ft_print_solution(t_square *square, size_t count, t_tetri **tetris);
+void			ft_print_solution(t_square *square, size_t count,
+									t_tetri **tetris);
 #endif

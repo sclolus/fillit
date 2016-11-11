@@ -6,13 +6,32 @@
 /*   By: sclolus <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 19:15:28 by sclolus           #+#    #+#             */
-/*   Updated: 2016/11/11 00:44:01 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/11 01:41:26 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
 
-static size_t	ft_read_tetri(char *content, size_t offset)
+static int		ft_check_char(char *content, size_t offset, size_t col)
+{
+	if ((col < 4 && content[offset] != '#' && content[offset] != '.')
+		|| (col == 4 && content[offset] != '\n'))
+		return (0);
+	return (1);
+}
+
+static int		ft_check_block(char *content, size_t offset,
+								size_t row, size_t col)
+{
+	if ((col > 0 && content[offset - 1] == '#')
+		|| (col < 3 && content[offset + 1] == '#')
+		|| (row > 0 && content[offset - 5] == '#')
+		|| (row < 3 && content[offset + 5] == '#'))
+		return (1);
+	return (0);
+}
+
+static int		ft_read_tetri(char *content, size_t offset)
 {
 	size_t	nbr_line;
 	size_t	nbr_blocks;
@@ -23,20 +42,12 @@ static size_t	ft_read_tetri(char *content, size_t offset)
 	nbr_blocks = 0;
 	while (u < 5 && nbr_line < 4)
 	{
-		if (!(((content[offset] == '#' || content[offset] == '.')
-			   && u < 4)
-			  || (content[offset] == '\n' && u == 4)))
-			return (FILE_ERROR);
+		if (!(ft_check_char(content, offset, u))
+			|| (content[offset] == '#'
+				&& !(ft_check_block(content, offset, nbr_line, u))))
+			return (0);
 		if (content[offset] == '#')
-		{
-			if ((u > 0 && content[offset - 1] == '#')
-					|| (u < 3 && content[offset + 1] == '#')
-					|| (nbr_line > 0 && content[offset - 5] == '#')
-					|| (nbr_line < 3 && content[offset + 5] == '#'))
-				nbr_blocks++;
-			else
-				return (0);
-		}
+			nbr_blocks++;
 		offset++;
 		if (++u == 5)
 		{
@@ -60,7 +71,7 @@ size_t			ft_read_content(char *content, size_t size)
 			return (0);
 		offset += 20;
 		if (content[offset] != '\n' && offset != size)
-			return (FILE_ERROR);
+			return (0);
 		offset++;
 	}
 	return (size / 21 + 1);
