@@ -6,7 +6,7 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 05:06:23 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/11 05:37:14 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/11 08:50:50 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,16 @@ int		ft_solve_one(t_square *square, size_t count, t_tetri **tetris, size_t i)
 {
 	if (i >= count)
 		return (1);
-	tetris[i]->x = 0;
-	tetris[i]->y = 0;
+	if (tetris[i]->prev)
+	{
+		tetris[i]->x = tetris[i]->prev->x;
+		tetris[i]->y = tetris[i]->prev->y;
+	}
+	else
+	{
+		tetris[i]->x = 0;
+		tetris[i]->y = 0;
+	}
 	while (1)
 	{
 		if (ft_claim(square, tetris[i]))

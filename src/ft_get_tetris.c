@@ -6,7 +6,7 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 19:15:09 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/11 04:50:11 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/11 08:45:56 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,25 @@ static void		ft_init_box(t_tetri *tetri)
 	}
 }
 
+static void		ft_find_prev(t_tetri **tetris, size_t i)
+{
+	size_t	j;
+
+	tetris[i]->prev = NULL;
+	j = i;
+	while (j-- > 0)
+	{
+		if (tetris[i]->box.row0 == tetris[j]->box.row0
+			&& tetris[i]->box.row1 == tetris[j]->box.row1
+			&& tetris[i]->box.row2 == tetris[j]->box.row2
+			&& tetris[i]->box.row3 == tetris[j]->box.row3)
+		{
+			tetris[i]->prev = tetris[j];
+			return ;
+		}
+	}
+}
+
 size_t			ft_get_tetris(char *content, size_t count, t_tetri **tetris)
 {
 	size_t	i;
@@ -110,7 +129,9 @@ size_t			ft_get_tetris(char *content, size_t count, t_tetri **tetris)
 		tetris[i]->x = 0;
 		tetris[i]->y = 0;
 		ft_normalize_tetri(tetris[i]);
-		ft_init_box(tetris[i++]);
+		ft_init_box(tetris[i]);
+		ft_find_prev(tetris, i);
+		++i;
 	}
 	return (i);
 }
