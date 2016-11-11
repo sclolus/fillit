@@ -6,7 +6,7 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 18:22:07 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/11 08:42:27 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/11 09:16:19 by jguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ typedef struct	s_box
 typedef struct	s_tetri
 {
 	t_block		blocks[BLOCK_COUNT];
-	size_t		width;
-	size_t		height;
 	size_t		x;
 	size_t		y;
+	size_t		width;
+	size_t		height;
 	t_box		box;
 	struct s_tetri	*prev;
 }				t_tetri;
