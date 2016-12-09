@@ -6,7 +6,7 @@
 /*   By: sclolus <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 19:15:28 by sclolus           #+#    #+#             */
-/*   Updated: 2016/11/12 00:46:30 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/28 23:41:24 by sclolus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static int		ft_read_tetri(char *content, size_t offset)
 	return (1);
 }
 
-size_t			ft_read_content(char *content, size_t size)
+size_t			ft_read_content(char *restrict content, size_t size)
 {
 	size_t	offset;
 

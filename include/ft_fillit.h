@@ -6,7 +6,7 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 18:22:07 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/12 00:47:40 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/28 23:46:47 by sclolus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,18 +51,18 @@ typedef struct	s_square
 	size_t			size;
 }				t_square;
 
-size_t			ft_read_file(char *path, char **content);
-size_t			ft_read_content(char *content, size_t size);
+size_t			ft_read_file(char *restrict path, char **restrict content);
+size_t			ft_read_content(char *restrict content, size_t size);
 size_t			ft_get_tetris(char *content, size_t count, t_tetri **tetris);
-void			ft_init_square(t_square *square, size_t count,
-								t_tetri **tetris);
-int				ft_claim(t_square *square, t_tetri *tetri);
-void			ft_unclaim(t_square *square, t_tetri *tetri);
-int				ft_move(t_square *square, t_tetri *tetri);
-void			ft_solve(t_square *square, size_t count,
-							t_tetri **tetris);
-void			ft_print_solution(t_square *square, size_t count,
-									t_tetri **tetris);
-void			ft_destroy_tetris(size_t count, t_tetri **tetris);
+void			ft_init_square(t_square *restrict square, size_t count,
+								t_tetri **restrict tetris);
+int				ft_claim(t_square *restrict square, t_tetri *restrict tetri);
+void			ft_unclaim(t_square *restrict square, t_tetri *restrict tetri);
+int				ft_move(t_square *restrict square, t_tetri *restrict tetri);
+void			ft_solve(t_square *restrict square, size_t count,
+							t_tetri **restrict tetris);
+void			ft_print_solution(t_square *restrict square, size_t count,
+									t_tetri **restrict tetris);
+void			ft_destroy_tetris(size_t count, t_tetri **restrict tetris);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: sclolus <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 17:38:11 by sclolus           #+#    #+#             */
-/*   Updated: 2016/11/12 00:46:46 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/28 23:43:32 by sclolus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ static size_t	ft_str_index(t_square *square, t_tetri *tetri, size_t block)
 			+ (tetri->blocks[block].y + tetri->y) * (square->size + 1));
 }
 
-void			ft_print_solution(t_square *square, size_t count,
-									t_tetri **tetris)
+void			ft_print_solution(t_square *restrict square, size_t count,
+									t_tetri **restrict tetris)
 {
 	size_t	len;
 	char	str[square->size * (square->size + 1)];

@@ -19,7 +19,7 @@ HDR_PATH= include/
 HDR_FILES= ft_fillit.h
 HDR= $(addprefix $(HDR_PATH),$(HDR_FILES))
 CC= gcc
-CC_FLAGS= -Wall -Werror -Wextra
+CC_FLAGS= -Wall -Werror -Wextra -pg
 
 all: $(NAME)
 

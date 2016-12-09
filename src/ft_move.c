@@ -6,13 +6,13 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 04:54:29 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/10 06:31:48 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/28 23:42:47 by sclolus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
 
-int		ft_move(t_square *square, t_tetri *tetri)
+int		ft_move(t_square *restrict square, t_tetri *restrict tetri)
 {
 	if (tetri->x + tetri->width < square->size)
 		++(tetri->x);

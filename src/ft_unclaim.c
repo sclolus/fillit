@@ -6,13 +6,13 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 04:43:43 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/11 09:40:14 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/28 23:42:34 by sclolus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
 
-void	ft_unclaim(t_square *square, t_tetri *tetri)
+void	ft_unclaim(t_square *restrict square, t_tetri *restrict tetri)
 {
 	size_t	shifter;
 

@@ -6,7 +6,7 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 05:23:47 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/12 00:00:50 by jguyon           ###   ########.fr       */
+/*   Updated: 2016/11/28 23:42:11 by sclolus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static size_t	ft_get_size(size_t size, size_t count, t_tetri **tetris)
 	return (size);
 }
 
-void			ft_init_square(t_square *square, size_t count, t_tetri **tetris)
+void			ft_init_square(t_square *restrict square, size_t count, t_tetri **restrict tetris)
 {
 	size_t	size;
 	size_t	i;

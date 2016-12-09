@@ -6,13 +6,13 @@
 /*   By: jguyon <jguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 05:06:23 by jguyon            #+#    #+#             */
-/*   Updated: 2016/11/12 00:05:05 by sclolus          ###   ########.fr       */
+/*   Updated: 2016/11/28 23:43:50 by sclolus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
 
-int		ft_solve_one(t_square *square, size_t count, t_tetri **tetris, size_t i)
+int		ft_solve_one(t_square *restrict square, size_t count, t_tetri **restrict tetris, size_t i)
 {
 	if (i >= count)
 		return (1);
@@ -39,7 +39,7 @@ int		ft_solve_one(t_square *square, size_t count, t_tetri **tetris, size_t i)
 	}
 }
 
-void	ft_solve(t_square *square, size_t count, t_tetri **tetris)
+void	ft_solve(t_square *restrict square, size_t count, t_tetri **restrict tetris)
 {
 	while (!ft_solve_one(square, count, tetris, 0))
 		++(square->size);
